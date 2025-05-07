@@ -20,7 +20,7 @@ In autonomous mode the rover moves forward until it detects an obstacle 70 cm fr
 
 _"check"_ node is launched (autonomous_launch.py). Once the start button is pressed, _"autonomous"_ node is launched (autonomous.py) which subscribes to _/scan_ and publishes to _/cmd_vel_ topics running at 6Hz. The minimum and maximum distance to check for obstacles are given in _obstacle_threshold_ and _distance_to_check_.
 
-**Note:** This script assumes only to detect obstacles in front, also it doesn't detect obstacles while its turning (because of sleep function). So obstacles avoidance while the robot is already executing an obstacle avoidance maneuver would not be feasible. That would require reworking the script.
+**Note:** This script assumes only to detect obstacles in front, also it doesn't detect obstacles while its turning (because of sleep function). So obstacles avoidance while the robot is already executing an obstacle avoidance maneuver would not be feasible. That would require reworking the script. Also scan_tools package can be used further to get odometry from laser scan alone. 
 
 All of this is done at statup of the raspberry-pi by using the startup applications.
 
