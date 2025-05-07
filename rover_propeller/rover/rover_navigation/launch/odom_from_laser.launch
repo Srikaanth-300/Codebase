@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<launch>
+	<node name="odom_laser" pkg ="laser_scan_matcher" type ="laser_scan_matcher_node" output="screen">
+		<param name = "use_imu" value ="false"/>
+		<param name = "use_odom" value ="false"/>
+		<param name = "publish_pose_stamped" value ="true"/>
+		<param name = "base_frame" value ="laser"/>
+		<param name = "max_iterations" value ="50"/>
+	</node>
+</launch>
+
+<!-- not used only for testing my idea -->

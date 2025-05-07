@@ -1,0 +1,6 @@
+<?xml version = "1.0"?>
+
+<launch>
+    <node name="move_2m" type="move_2m.py" pkg="rover_navigation" output="screen"/>
+</launch> 
+<!-- not used only for testing my logic -->

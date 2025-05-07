@@ -1,0 +1,49 @@
+OPERATING MANUAL
+
+•	Turn on the power switch (last switch) on the side to power the system.
+•	Wait for 5 minutes.
+•	Connect the ROS mobile app with the robot.
+•	Once connected, the communication is established (make sure the raspberry pi and the app is connected on the same network).
+
+Connecting the Pi and the app (If changing network, this must be done):
+•	As a startup configuration, connect a display, mouse and keyboard to setup the Wi-Fi connection on the pi.
+•	Once connected, go to Settings, Wi-Fi connections and connect to the required network.
+•	Open “Terminal” and type the command “hostname -I” to get the ip address of pi.
+•	Close all the terminals and restart the system.
+•	In the app enter the same ip address at the ROS_MASTER_URI field.
+•	Press “Connect” to establish connection.
+•	The status would change from “Disconnected” to “Connected”.
+    
+      Configuring the Visualization tab:
+•	Go to “Details” section on the app, press (Add widget) and add a “Joystick” widget. Once added you can see the joystick on the “Viz” section.
+•	Press on the joystick widget and change the values of “X” and “Y” to align the joystick to your choice.
+•	Ensure the “Topic Name” is set to “cmd_vel”. (Anything else might not work)
+•	Also don’t edit the “X-Axis” and “Y-Axis” mapping tab.
+•	Go back to “Details” section and add a “Viz2D” widget.
+•	Press on the Viz2D widget and then modify the “X” and “Y” values to align the visualization window.
+•	Add a “LaserScan” layer. And then press the layer to change the topic to “/scan” under “Subscriber”  “Topic Name”. Also type in “laser” in the “Follow Frame” field under “Camera”.
+•	Go back to “Details” section and add a “Button” widget.
+•	Press on the button widget to modify its “X” and “Y” according to your choice.
+•	Change the Topic Name to “start” under “Publisher” and the “Parameters” to “start”.
+•	Again add a “Button” widget.
+•	Press on the button widget to modify its “X” and “Y” according to your choice.
+•	Change the Topic Name to “stop” under “Publisher” and the “Parameters” to “stop”.
+
+    Don’ts: 
+•	If pressed “start” button don’t use joystick.
+•	Also don’t immediately press “stop” after pressing “start” give a gap of 2 seconds.
+    
+ Troubleshooting:
+•	If after pressing “stop”, the robot moves try pressing the center of joystick. Even after that if it didn’t stop, switch off the system and restart.
+•	Make sure both the pi and the mobile is connected on the same network. (If its on the same network only the last two digits of the ip address differs).
+   
+ To visualize lidar data on PC:
+•	Get the ip address as described previously.
+•	Open another terminal and type “gedit .bashrc”.
+•	The last two lines need to be modified.
+•	Type in your pi’s ip address at the “export ROS_MASTER_URI”. (Ex: if your pi’s  ip address is 192.168.33.50 then this line must be present “export ROS_MASTER_URI= http://192.168.33.50:11311/”).
+•	Also type in the PC’s ip at the ROS_IP variable. (Ex: If your PC’s ip address is 192.168.33.65 then this line must be present “export ROS_IP= 192.168.33.65”).
+•	Open a new terminal and type “rviz”.
+•	Once opened change the “Fixed frame” to “laser” by typing in.
+•	Press “Add” button, scroll down to choose “LaserScan”, drop down to ensure the topic has “/scan”.
+

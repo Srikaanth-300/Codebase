@@ -1,0 +1,11 @@
+<?xml version = "1.0"?>
+
+<launch>
+    <node name="arduino_node" type="serial_node.py" pkg="rosserial_python" output="screen">
+        <param name="port" value="/dev/ttyACM0"/>
+        <param name="baud" value="57600"/>
+    </node>
+    <include file="$(find rplidar_ros)/launch/rplidar_a1.launch"/>
+    <include file="$(find rover_navigation)/launch/odom_from_laser.launch"/>
+    <node name="check" type="autonomous_launch.py" pkg="rover_navigation" output="screen"/>
+</launch> 
