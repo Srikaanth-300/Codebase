@@ -6,6 +6,7 @@ OPERATING MANUAL
 •	Once connected, the communication is established (make sure the raspberry pi and the app is connected on the same network).
 
 Connecting the Pi and the app (If changing network, this must be done):
+
 •	As a startup configuration, connect a display, mouse and keyboard to setup the Wi-Fi connection on the pi.
 •	Once connected, go to Settings, Wi-Fi connections and connect to the required network.
 •	Open “Terminal” and type the command “hostname -I” to get the ip address of pi.
@@ -14,7 +15,8 @@ Connecting the Pi and the app (If changing network, this must be done):
 •	Press “Connect” to establish connection.
 •	The status would change from “Disconnected” to “Connected”.
     
-      Configuring the Visualization tab:
+Configuring the Visualization tab:
+
 •	Go to “Details” section on the app, press (Add widget) and add a “Joystick” widget. Once added you can see the joystick on the “Viz” section.
 •	Press on the joystick widget and change the values of “X” and “Y” to align the joystick to your choice.
 •	Ensure the “Topic Name” is set to “cmd_vel”. (Anything else might not work)
@@ -29,15 +31,18 @@ Connecting the Pi and the app (If changing network, this must be done):
 •	Press on the button widget to modify its “X” and “Y” according to your choice.
 •	Change the Topic Name to “stop” under “Publisher” and the “Parameters” to “stop”.
 
-    Don’ts: 
+Don’ts: 
+
 •	If pressed “start” button don’t use joystick.
 •	Also don’t immediately press “stop” after pressing “start” give a gap of 2 seconds.
     
- Troubleshooting:
+Troubleshooting:
+
 •	If after pressing “stop”, the robot moves try pressing the center of joystick. Even after that if it didn’t stop, switch off the system and restart.
 •	Make sure both the pi and the mobile is connected on the same network. (If its on the same network only the last two digits of the ip address differs).
    
- To visualize lidar data on PC:
+To visualize lidar data on PC:
+
 •	Get the ip address as described previously.
 •	Open another terminal and type “gedit .bashrc”.
 •	The last two lines need to be modified.
@@ -46,4 +51,3 @@ Connecting the Pi and the app (If changing network, this must be done):
 •	Open a new terminal and type “rviz”.
 •	Once opened change the “Fixed frame” to “laser” by typing in.
 •	Press “Add” button, scroll down to choose “LaserScan”, drop down to ensure the topic has “/scan”.
-
