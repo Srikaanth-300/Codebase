@@ -9,6 +9,7 @@ process = None  # To keep track of the running node
 cmd_vel_pub = None
 
 def stop():    # To ensure the robot stops after the node is killed, zero values are published to /cmd_vel. 
+    '''Function to publish zero velocity for a second to stop the rover'''
     stop_msg = Twist()
     stop_msg.linear.x = 0.0
     stop_msg.linear.y = 0.0
@@ -22,6 +23,7 @@ def stop():    # To ensure the robot stops after the node is killed, zero values
         rospy.sleep(0.1)
 
 def start_clb(msg):
+    '''The function starts "autonomous" node by monitoring the global "process" variable. And ensures that only once the node is started after receiving the boolean message from the topic through the app.'''
     global process
     if msg.data:  # If the received message is True
         if process is None:  # Ensure no duplicate nodes are started
@@ -31,6 +33,7 @@ def start_clb(msg):
             rospy.loginfo("Node is already running!")
 
 def stop_clb(msg):
+    '''This function kills the "autonomous" node. Then calls the "stop()" function and resets the "process" variable.'''
     global process
     if msg.data:  # If the received message is True
         if process is not None:

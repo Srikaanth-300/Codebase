@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+# This is a test code to check obstacle avoidance and is not part of the system workflow
+
 import rospy
 from geometry_msgs.msg import Twist
 from sensor_msgs.msg import LaserScan
